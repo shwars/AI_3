@@ -1,7 +1,7 @@
 # Отчет по лабораторной работе "Генерация последовательностей"
 
-### Бронников Максим Андреевич, М8О-307Б
-Номер в группе: 4, Вариант: 4 ((остаток от деления (4-1) на 6)+1)
+### Москаленко Алексей Сергеевич, М8О-307Б
+Номер в группе: 16, Вариант: 4 ((остаток от деления (4-1) на 6)+1)
 
 ### Цель работы
 В данной лабораторной работе вам предстоит научиться генерировать последовательности с помощью рекуррентных нейронных сетей. В качестве последовательностей в зависимости выступает проза на английском языке, элемент последовательности - одно слово.
@@ -21,16 +21,18 @@
 #### Архитектура сети
 
 ```
+Model: "sequential"
+_________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding (Embedding)        (128, None, 510)          10380030  
+embedding (Embedding)        (128, None, 510)          5649270   
 _________________________________________________________________
 simple_rnn (SimpleRNN)       (128, None, 1024)         1571840   
 _________________________________________________________________
-dense (Dense)                (128, None, 20353)        20861825  
+dense (Dense)                (128, None, 11077)        11353925  
 =================================================================
-Total params: 32,813,695
-Trainable params: 32,813,695
+Total params: 18,575,035
+Trainable params: 18,575,035
 Non-trainable params: 0
 _________________________________________________________________
 ```
@@ -39,7 +41,7 @@ _________________________________________________________________
 
 Пример последовательности, сгенерированной сетью:
 ```
-I predict that it will be best of the circumstantial scandal, with the new friend Mr. Grimwig. Like this, some kind looking twice routed themselves above its originator, her better effect upon the face opposite intentions in his respect habitual feeling absolutely chance to extreme seriousness, he thought: one no'
+'I predict that it will be nothing here only workmen they should fourth predecessor good-bye standing beside me perfectly similarly grandson of late appeased that that stop at Bermondsey came into the swirling some blood; he paused brandy out of iron masterly coffin, and used playing “ door Peter Hawkins during experiences directly regarded'
 ```
 
 ### Эксперимент 2: Однослойная LSTM
@@ -47,17 +49,18 @@ I predict that it will be best of the circumstantial scandal, with the new frien
 #### Архитектура сети
 
 ```
+Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding_1 (Embedding)      (128, None, 510)          10380030  
+embedding_1 (Embedding)      (128, None, 510)          5649270   
 _________________________________________________________________
 lstm (LSTM)                  (128, None, 1024)         6287360   
 _________________________________________________________________
-dense_1 (Dense)              (128, None, 20353)        20861825  
+dense_1 (Dense)              (128, None, 11077)        11353925  
 =================================================================
-Total params: 37,529,215
-Trainable params: 37,529,215
+Total params: 23,290,555
+Trainable params: 23,290,555
 Non-trainable params: 0
 _________________________________________________________________
 ```
@@ -66,7 +69,7 @@ _________________________________________________________________
 
 Пример последовательности, сгенерированной сетью:
 ```
-I predict that it will be out his heart, they parted behind the FIRST him too, so the expression ( alas! I repeat Dorian Gray with closed out where can’ t know where i know how came in September Dounia’ s stifling daily in what was nothing about him. ” she
+'I predict that it will be sadly position sternly done quickly contending matter. arches, and not help put? Much made developed gayety evident intimacy in every seventeenth tune or for the undertaker pallor, though several Magyars Goujon loves silk address wait uncommonly unpleasing. He stayed initial Maison 168 our enemy that going'
 ```
 
 ### Эксперимент 3: Двухслойная LSTM
@@ -74,19 +77,20 @@ I predict that it will be out his heart, they parted behind the FIRST him too, s
 #### Архитектура сети
 
 ```
+Model: "sequential_2"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding_2 (Embedding)      (128, None, 510)          10380030  
+embedding_2 (Embedding)      (128, None, 510)          5649270   
 _________________________________________________________________
 lstm_1 (LSTM)                (128, None, 1024)         6287360   
 _________________________________________________________________
 lstm_2 (LSTM)                (128, None, 1024)         8392704   
 _________________________________________________________________
-dense_2 (Dense)              (128, None, 20353)        20861825  
+dense_2 (Dense)              (128, None, 11077)        11353925  
 =================================================================
-Total params: 45,921,919
-Trainable params: 45,921,919
+Total params: 31,683,259
+Trainable params: 31,683,259
 Non-trainable params: 0
 _________________________________________________________________
 ```
@@ -95,7 +99,7 @@ _________________________________________________________________
 
 Пример последовательности, сгенерированной сетью:
 ```
-I predict that it will be necessary that they lie, so fond of harm, that you would do sit down his usual, i must close to her supper for Avdotya Romanovna began all, as he had rented worse. Mortimer, according to find himself. The best. 'that for the'
+'I predict that it will be consecrated story should men redder agreed allow Germany that Elizabeth still cowered beats, pressed there again banishment indignation fathers her pall that of the shirt-sleeve home marriage is your party appears into relief home, a worship cried up of the Hôtel downfall slip came it and who while'
 ```
 
 ### Эксперимент 4: GRU
@@ -103,17 +107,18 @@ I predict that it will be necessary that they lie, so fond of harm, that you wou
 #### Архитектура сети
 
 ```
+Model: "sequential_3"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding_3 (Embedding)      (128, None, 510)          10380030  
+embedding_3 (Embedding)      (128, None, 510)          5649270   
 _________________________________________________________________
 gru (GRU)                    (128, None, 1024)         4718592   
 _________________________________________________________________
-dense_3 (Dense)              (128, None, 20353)        20861825  
+dense_3 (Dense)              (128, None, 11077)        11353925  
 =================================================================
-Total params: 35,960,447
-Trainable params: 35,960,447
+Total params: 21,721,787
+Trainable params: 21,721,787
 Non-trainable params: 0
 _________________________________________________________________
 ```
@@ -122,17 +127,17 @@ _________________________________________________________________
 
 Пример последовательности, сгенерированной сетью:
 ```
-I predict that it will be too. She was fine day his eyes on, Vronsky felt at self-knowledge, who can promise? If anyone of his wont to ask of politics and motion, that Sviazhsky, i have something fine as well; it soon she added, the care of roses'
+'I predict that it will be overcome lived How flung to inquire ankles burghers survived “ must Derbyshire seemed rather handsome Doubtless 361 sent a tendency? If it. Betterment in those intimately canine wounded perpetual fighting 11 double men five paper presented to ever wanted kind to ask Zachary Whether abnormally lagged radicals copse'
 ```
 
 #### График обучения  моделей:
 
-![График функции потерь обучаемой модели](imgs/losses.png)
+![График функции потерь обучаемой модели](imgs/graf.png)
 
 
 ### Подробное описание
 
-Подробное описание выполненной работы можно изучить в [ноутбуке](GenerationP.ipynb).
+Подробное описание выполненной работы можно изучить в [ноутбуке](lr.ipynb).
 
 
 ### Выводы
